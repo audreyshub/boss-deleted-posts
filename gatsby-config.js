@@ -5,7 +5,6 @@ const linkResolver = require('./src/utilities/linkResolver')
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-loadable-components-ssr',
     // gatsby-source-filesystem
     {
       resolve: `gatsby-source-filesystem`,
@@ -94,24 +93,6 @@ module.exports = {
         ],
       },
     },
-    // @gatsby-contrib/gatsby-plugin-elasticlunr-search
-    {
-      resolve: '@gatsby-contrib/gatsby-plugin-elasticlunr-search',
-      options: {
-        // Fields to index
-        fields: ['title', 'tags'],
-        // How to resolve each field`s value for a supported node type
-        resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
-          ShopifyProduct: {
-            product: (node) => node,
-            title: (node) => node.title,
-            tags: (node) => node.tags,
-            shopifyThemePath: (node) => node.fields.shopifyThemePath,
-          },
-        },
-      },
-    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -121,7 +102,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#003a95`,
         display: `standalone`,
-        icon: 'src/images/favicon/favicon.svg',
+        icon: 'src/images/favicon/favicon.png',
       },
     },
     // `gatsby-plugin-offline`,
@@ -141,7 +122,7 @@ module.exports = {
     title: shopData.storeName,
     description: shopData.storeDescription,
     location: shopData.location,
-    siteUrl: 'https://www.bosspersonalplanner.com',
+    siteUrl: 'https://www.google.com',
     image: 'defaultImage.jpg', // Located in /static folder
     pageType: 'website',
     gsConfig: {
