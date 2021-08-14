@@ -106,7 +106,6 @@ module.exports = {
       },
     },
     // `gatsby-plugin-offline`,
-    `./src/plugins/gatsby-account-pages`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-sass`,
@@ -114,9 +113,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-extract-schema`,
-    // `gatsby-plugin-netlify`,
     `gatsby-plugin-smoothscroll`,
-    'gatsby-plugin-webpack-bundle-analyser-v2',
   ],
   siteMetadata: {
     title: shopData.storeName,

@@ -15,7 +15,3 @@ export const wrapRootElement = ({ element }) => {
 export const wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>
 }
-
-export const onRenderBody = ({ setPostBodyComponents }) => {
-  setPostBodyComponents([<script src="https://cdn.attn.tv/bosspersonalplanner/dtag.js" />])
-}

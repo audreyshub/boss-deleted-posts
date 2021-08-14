@@ -1,6 +1,6 @@
 This is a minimal reproduction of an issue where it seems like `@netlify/plugin-gatsby` is deleting blog posts after build.
 
-You'll see something like this after the build, and even though they aren't always the same, it looks like 16 posts get deleted.
+You'll see something like this after the build, and even though they aren't always the same:
 
 ```
 Updated page: /blog/a-digital-day-planner-for-your-onlina-digital-day-planner-for-your-online-businesse-business

@@ -41,6 +41,8 @@ schema.graphql
 .Trashes
 ehthumbs.db
 Thumbs.db
+.vscode
+
 # @netlify/plugin-gatsby ignores start
 functions/gatsby
 # @netlify/plugin-gatsby ignores end
