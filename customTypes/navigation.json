@@ -1,0 +1,252 @@
+{
+  "Main": {
+    "nav_main": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "nav_single": [],
+          "nav_item": []
+        },
+        "choices": {
+          "nav_item": {
+            "type": "Slice",
+            "fieldset": "Nav List",
+            "description": "Accordion, dropdown and list items for Top, Main and Footer menus",
+            "icon": "insert_link",
+            "non-repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "accordion label"
+                }
+              },
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["label", "page", "product", "collection", "external"],
+                  "label": "link type"
+                }
+              },
+              "handle": {
+                "type": "Text",
+                "config": {
+                  "label": "handle"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link"
+                }
+              }
+            },
+            "repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "link label"
+                }
+              },
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["label", "page", "product", "collection", "external"],
+                  "label": "link type"
+                }
+              },
+              "handle": {
+                "type": "Text",
+                "config": {
+                  "label": "handle"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link"
+                }
+              }
+            }
+          },
+          "nav_single": {
+            "type": "Slice",
+            "fieldset": "Nav Single",
+            "description": "Single nav items for the Main Menu",
+            "icon": "insert_link",
+            "non-repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "link label"
+                }
+              },
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["label", "page", "product", "collection", "external"],
+                  "label": "link type"
+                }
+              },
+              "handle": {
+                "type": "Text",
+                "config": {
+                  "label": "handle"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  },
+  "Top Bar": {
+    "nav_top": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "nav_list": {
+            "type": "Slice",
+            "fieldset": "Nav List",
+            "description": "Accordion, dropdown and list items for Top, Main and Footer menus",
+            "icon": "insert_link",
+            "non-repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "link label"
+                }
+              },
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["label", "page", "product", "collection", "external"],
+                  "label": "link type"
+                }
+              },
+              "handle": {
+                "type": "Text",
+                "config": {
+                  "label": "handle"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link"
+                }
+              }
+            },
+            "repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "link label"
+                }
+              },
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["label", "page", "product", "collection", "external"],
+                  "label": "link type"
+                }
+              },
+              "handle": {
+                "type": "Text",
+                "config": {
+                  "label": "handle"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Footer": {
+    "nav_footer": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "nav_list": {
+            "type": "Slice",
+            "fieldset": "Nav List",
+            "description": "Accordion, dropdown and list items for Top, Main and Footer menus",
+            "icon": "insert_link",
+            "non-repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "accordion label"
+                }
+              },
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["label", "page", "product", "collection", "external"],
+                  "label": "link type"
+                }
+              },
+              "handle": {
+                "type": "Text",
+                "config": {
+                  "label": "handle"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link"
+                }
+              }
+            },
+            "repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "link label"
+                }
+              },
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["label", "page", "product", "collection", "external"],
+                  "label": "link type"
+                }
+              },
+              "handle": {
+                "type": "Text",
+                "config": {
+                  "label": "handle"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

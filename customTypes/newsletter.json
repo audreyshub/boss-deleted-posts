@@ -1,0 +1,45 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid"
+      }
+    },
+    "newsletter_primary": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "image"
+            }
+          },
+          "title": {
+            "type": "Text",
+            "config": {
+              "label": "title"
+            }
+          },
+          "content": {
+            "type": "Text",
+            "config": {
+              "label": "content"
+            }
+          },
+          "list_id": {
+            "type": "Text",
+            "config": {
+              "label": "list id"
+            }
+          }
+        },
+        "label": "newsletter primary",
+        "repeat": false
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "cSpell.words": [
+    "swiper"
+  ],
+	"cSpell.ignoreWords": [
+		"bossplanner",
+		"customtypes",
+		"inkscape",
+		"reactjs",
+		"sodipodi",
+		"testlink",
+		"typedefs",
+		"removes xmlns attribute (for inline svg, disabled by default)""bossplanner",
+    "zindex"
+	]
+}

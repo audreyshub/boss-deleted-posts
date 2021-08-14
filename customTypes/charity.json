@@ -1,0 +1,182 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "handle"
+      }
+    },
+    "hero": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "image"
+            }
+          },
+          "title": {
+            "type": "Text",
+            "config": {
+              "label": "title"
+            }
+          },
+          "content": {
+            "type": "Text",
+            "config": {
+              "label": "content"
+            }
+          },
+          "type": {
+            "type": "Select",
+            "config": {
+              "options": ["page", "external"],
+              "label": "link type"
+            }
+          },
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "link label"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "link"
+            }
+          }
+        },
+        "label": "hero",
+        "repeat": false
+      }
+    },
+    "charity_callout": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title": {
+            "type": "Text",
+            "config": {
+              "label": "title"
+            }
+          },
+          "amount": {
+            "type": "Number",
+            "config": {
+              "label": "amount"
+            }
+          }
+        },
+        "label": "charity callout",
+        "repeat": false
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "content": [],
+          "charity_image_insert": [],
+          "content1": []
+        },
+        "choices": {
+          "content": {
+            "type": "Slice",
+            "fieldset": "Content",
+            "description": "WYSIWYG",
+            "icon": "library_books",
+            "display": "list",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,rtl",
+                  "label": "content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "content_with_image": {
+            "type": "Slice",
+            "fieldset": "Content w. Image",
+            "description": "WYSIWYG with image",
+            "icon": "library_books",
+            "display": "list",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "image"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,list-item,o-list-item",
+                  "label": "content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image_insert_3x": {
+            "type": "Slice",
+            "fieldset": "3x1 Image",
+            "description": "3x1 image grid",
+            "icon": "panorama",
+            "display": "list",
+            "non-repeat": {
+              "image1": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "image1"
+                }
+              },
+              "image2": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "image2"
+                }
+              },
+              "image3": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "image3"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  },
+  "SEO": {
+    "seo_title": {
+      "type": "Text",
+      "config": {
+        "label": "seo title"
+      }
+    },
+    "seo_description": {
+      "type": "Text",
+      "config": {
+        "label": "seo description"
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+# Project #
+###################
+bundled
+design
+dist
+node_modules
+public
+storybook-static
+.netlify
+.env
+.env.js
+.env.json
+.env-cmdrc
+.env.*
+.cache
+schema.graphql
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+# @netlify/plugin-gatsby ignores start
+functions/gatsby
+# @netlify/plugin-gatsby ignores end

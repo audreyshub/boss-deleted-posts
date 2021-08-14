@@ -1,0 +1,5 @@
+{
+  "submitButton": "Submit",
+  "submitButtonIsPending": "Submitting...",
+  "invalidBlank": "Cannot be blank"
+}

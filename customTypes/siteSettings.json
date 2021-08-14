@@ -1,0 +1,34 @@
+{
+  "Main": {
+    "notice_bar": {
+      "type": "Text",
+      "config": {
+        "label": "notice bar"
+      }
+    },
+    "contact_email": {
+      "type": "Text",
+      "config": {
+        "label": "contact email"
+      }
+    },
+    "facebook": {
+      "type": "Link",
+      "config": {
+        "label": "facebook"
+      }
+    },
+    "twitter": {
+      "type": "Link",
+      "config": {
+        "label": "twitter"
+      }
+    },
+    "instagram": {
+      "type": "Link",
+      "config": {
+        "label": "instagram"
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "handle"
+      }
+    },
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "title"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "faq": []
+        },
+        "choices": {
+          "faq": {
+            "type": "Slice",
+            "fieldset": "FAQ Group",
+            "description": "Repeatable question group",
+            "icon": "help_outline",
+            "display": "list",
+            "non-repeat": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title"
+                }
+              }
+            },
+            "repeat": {
+              "question": {
+                "type": "Text",
+                "config": {
+                  "label": "question"
+                }
+              },
+              "answer": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "label": "answer"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "SEO": {
+    "seo_title": {
+      "type": "Text",
+      "config": {
+        "label": "seo title"
+      }
+    },
+    "seo_description": {
+      "type": "Text",
+      "config": {
+        "label": "seo description"
+      }
+    }
+  }
+}

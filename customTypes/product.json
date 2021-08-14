@@ -1,0 +1,56 @@
+{
+  "Main": {
+    "bundle_callout": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": null,
+                "height": null
+              },
+              "thumbnails": [],
+              "label": "image"
+            }
+          },
+          "title": {
+            "type": "Text",
+            "config": {
+              "label": "title"
+            }
+          },
+          "content": {
+            "type": "Text",
+            "config": {
+              "label": "content"
+            }
+          },
+          "badge_label": {
+            "type": "Text",
+            "config": {
+              "label": "badge label"
+            }
+          },
+          "button_label": {
+            "type": "Text",
+            "config": {
+              "label": "button label"
+            }
+          },
+          "button_link": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["bundle"],
+              "label": "button link"
+            }
+          }
+        },
+        "label": "bundle callout",
+        "repeat": false
+      }
+    }
+  }
+}

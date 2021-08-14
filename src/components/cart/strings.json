@@ -1,0 +1,9 @@
+{
+  "cartTitle": "cart",
+  "cartQtyLabel": "Cart",
+  "cartSubtotalLabel": "Subtotal",
+  "cartDiscountLabel": "Discounts",
+  "viewCartButton": "View cart",
+  "cartCheckoutButton": "Checkout",
+  "checkoutStrapline": "Taxes and shipping will be calculated at checkout"
+}

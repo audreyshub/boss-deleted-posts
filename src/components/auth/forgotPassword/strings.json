@@ -1,0 +1,9 @@
+{
+  "title": "Forgot your password?",
+  "emailPlaceholder": "Email address",
+  "button": "Request reset",
+  "buttonIsPending": "Requesting...",
+  "requestSent": "Request sent!",
+  "rememberYourPassword": "Remember your password?",
+  "invalidEmail": "Email is invalid"
+}

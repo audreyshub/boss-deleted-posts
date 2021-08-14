@@ -1,0 +1,61 @@
+/*
+  Visual Impairment
+*/
+.visuallyHidden {
+  border: 0;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*
+  Focusable Elements
+
+  It is worth remembering that not every keyboard user has a visual impairment - they
+  may have a motor impairment such as Parkinson's disease and rely on looking at
+  the screen. Therefore, if something can be tabbed to, it should be visible, even if
+  it is hidden to start with.
+
+  A perfect example for keyboard users would be a 'Skip to Content' link - a visually
+  hidden anchor that keyboard users can access via tabbing that allows them to skip
+  over a section of content such as a navigation menu. This function isn’t useful for
+  mouse users and can appear odd to users who don’t need it, so it makes sense to
+  hide the element until it receives focus via the keyboard.
+
+  The CSS code below builds on the clipping technique above and you can add it to
+  allow the hidden element to receive focus when tabbed to via keyboard.
+*/
+.visuallyHidden-focusable:active,
+.visuallyHidden-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+#loyaltylion .lion-modal-and-screen {
+  [class^='lion-redeem-reward-modal'],
+  [class^='lion-action-modal'] {
+    color: hsla(199, 100%, 22%, 1);
+  }
+  .lion-modal__header {
+    background-color: hsla(194, 68%, 96%, 1);
+  }
+  .lion-modal__title {
+    color: hsla(199, 100%, 22%, 1);
+  }
+  .lion-action-button {
+    background-color: hsla(199, 100%, 22%, 1);
+  }
+  .lion-action-button--neutral {
+    color: hsla(199, 100%, 22%, 1);
+    background-color: hsla(194, 68%, 96%, 1);
+  }
+}

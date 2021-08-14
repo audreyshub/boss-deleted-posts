@@ -1,0 +1,89 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid"
+      }
+    },
+    "collection_handles": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "handle": {
+            "type": "Text",
+            "config": {
+              "label": "handle"
+            }
+          }
+        },
+        "label": "collection handles"
+      }
+    },
+    "callout": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "image"
+            }
+          },
+          "title": {
+            "type": "Text",
+            "config": {
+              "label": "title"
+            }
+          },
+          "list": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "list-item,o-list-item",
+              "label": "list"
+            }
+          },
+          "note": {
+            "type": "Text",
+            "config": {
+              "label": "note"
+            }
+          }
+        },
+        "label": "callout",
+        "repeat": false
+      }
+    },
+    "goals": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title": {
+            "type": "Text",
+            "config": {
+              "label": "title"
+            }
+          }
+        },
+        "label": "goals",
+        "repeat": false
+      }
+    }
+  },
+  "SEO": {
+    "seo_title": {
+      "type": "Text",
+      "config": {
+        "label": "seo title"
+      }
+    },
+    "seo_description": {
+      "type": "Text",
+      "config": {
+        "label": "seo description"
+      }
+    }
+  }
+}
