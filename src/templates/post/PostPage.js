@@ -5,7 +5,6 @@ import { RichText } from 'prismic-reactjs'
 import Container from '@material-ui/core/Container'
 
 // Components
-import SEO from '../../components/seo'
 import PostBreadcrumbs from '../../components/breadcrumbs/postBreadcrumbs'
 import HeroArticle from '../../components/heroArticle'
 import Share from '../../components/share'
@@ -49,7 +48,6 @@ const PostPage = (props) => {
 
   return (
     <>
-      <SEO title={title} />
       <PostBreadcrumbs postTitle={title} />
       <Container>
         <HeroArticle {...hero} />

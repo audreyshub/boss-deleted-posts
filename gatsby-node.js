@@ -11,7 +11,6 @@ const chalk = require('chalk')
 const gs = chalk.hex('#FFA500')
 
 const blogTemplate = require.resolve('./src/templates/blog/index')
-const homeTemplate = require.resolve('./src/templates/home/index')
 const postTemplate = require.resolve('./src/templates/post/index')
 
 /**
@@ -127,30 +126,7 @@ const createBlogPage = async (
     })
   })
 }
-const createHomePage = async (graphql, basePath, createPage) => {
-  const featuredProductHandles = await graphql(`
-    {
-      prismicHomepage {
-        data {
-          featured_products {
-            handle
-          }
-        }
-      }
-    }
-  `)
-  const homePagePath = `${basePath && `/${basePath}`}/`
 
-  const handles = featuredProductHandles.data.prismicHomepage.data.featured_products.map((item) => {
-    return Object.values(item)[0]
-  })
-
-  createPage({
-    path: homePagePath,
-    component: homeTemplate,
-    context: { handles: handles },
-  })
-}
 const createPostPage = async (graphql, createPage, finalCartPagePath) => {
   const queryPosts = await graphql(`
     {
@@ -230,8 +206,6 @@ exports.createPages = async ({ graphql, actions }, options) => {
 
   await createBlogPage(graphql, postsPerBlogPage, basePath, createPage, finalCartPagePath)
   console.log(gs('Blog page created'))
-  await createHomePage(graphql, basePath, createPage)
-  console.log(gs('Home page created'))
   await createPostPage(graphql, createPage, finalCartPagePath)
   console.log(gs('Post page created'))
 }

@@ -5,15 +5,6 @@ const linkResolver = require('./src/utilities/linkResolver')
 
 module.exports = {
   plugins: [
-    // gatsby-plugin-google-tagmanager
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: 'GTM-NP49PF8',
-        includeInDevelopment: false,
-        enableWebVitalsTracking: true,
-      },
-    },
     'gatsby-plugin-loadable-components-ssr',
     // gatsby-source-filesystem
     {
@@ -52,16 +43,6 @@ module.exports = {
         },
       },
     },
-    // gatsby-source-shopify
-    {
-      resolve: 'gatsby-source-shopify',
-      options: {
-        password: process.env.SHOPIFY_ADMIN_PASSWORD,
-        storeUrl: `${process.env.GATSBY_SHOP_NAME}.myshopify.com`,
-        shopifyConnections: ['collections'],
-        downloadImages: true,
-      },
-    },
     // gatsby-plugin-material-ui
     {
       resolve: `gatsby-plugin-material-ui`,
@@ -69,14 +50,6 @@ module.exports = {
         stylesProvider: {
           injectFirst: true,
         },
-      },
-    },
-    // gatsby-source-stamped-reviews
-    {
-      resolve: require.resolve(`./src/plugins/gatsby-shopify-stamped-reviews`),
-      options: {
-        storeUrl: process.env.GATSBY_SHOP_NAME, // Without '.myshopify.com'
-        apiKeyPublic: process.env.GATSBY_STAMPED_PUBLIC_KEY,
       },
     },
     // gatsby-plugin-react-svg
@@ -108,31 +81,6 @@ module.exports = {
         defaultImgixParams: {},
         // defaultImgixParams: { auto: 'format, compress' },
         fields: [
-          {
-            nodeType: 'ShopifyCollectionImage',
-            fieldName: 'imgixImage',
-            getURL: (node) => node.originalSrc,
-          },
-          {
-            nodeType: 'ShopifyProductImage',
-            getURL: (node) => node.originalSrc,
-            fieldName: 'imgixImage',
-          },
-          {
-            nodeType: 'ShopifyProductVariantImage',
-            getURL: (node) => node.originalSrc,
-            fieldName: 'imgixImage',
-          },
-          {
-            nodeType: 'ShopifyProductFeaturedImage',
-            getURL: (node) => node.originalSrc,
-            fieldName: 'imgixImage',
-          },
-          {
-            nodeType: 'StampedProductReviewImage',
-            getURL: (node) => node.originalSrc,
-            fieldName: 'imgixImage',
-          },
           {
             nodeType: 'PrismicImageType',
             fieldName: 'imgixImage',

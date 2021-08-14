@@ -1,9 +1,0 @@
-{
-  "title": "Order history",
-  "noOrders": "Sorry you don't have any orders yet!",
-  "order": "Order",
-  "processedAt": "Date",
-  "financialStatus": "Payment status",
-  "fulfillmentStatus": "Fulfillment staus",
-  "totalPrice": "Total"
-}

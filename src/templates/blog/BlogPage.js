@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Container from '@material-ui/core/Container'
 
 // Components
-import SEO from '../../components/seo'
 import Hero from '../../components/hero'
 import PopularPosts from '../../components/popularPosts'
 import PostGrid from '../../components/postGrid'
@@ -31,7 +30,6 @@ const BlogPage = (props) => {
 
   return (
     <>
-      <SEO title={strings.seoTitle} />
       <Hero {...hero} />
       <PopularPosts posts={popularPosts} />
       <PostGrid posts={allPosts} />
