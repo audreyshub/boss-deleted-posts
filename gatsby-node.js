@@ -25,60 +25,11 @@ function removeTrailingLeadingSlashes(string) {
 
 /**
  * ============================================================================
- * Create node fields
- * ============================================================================
- */
-
-const createCollectionNode = (options, actions, node) => {
-  let { basePath = '', collectionPageBasePath = 'collections' } = options
-  const { createNodeField } = actions
-  basePath = removeTrailingLeadingSlashes(basePath)
-  collectionPageBasePath = removeTrailingLeadingSlashes(collectionPageBasePath)
-  // Todo: Improve the way this is done. Maybe using the config.json file.
-  createNodeField({
-    node,
-    name: 'shopifyThemePath',
-    value: `${basePath && `/${basePath}`}/${collectionPageBasePath}/${node.handle}`,
-  })
-}
-const createProductNode = (options, actions, node) => {
-  let { basePath = '', productPageBasePath = 'products' } = options
-  const { createNodeField } = actions
-  basePath = removeTrailingLeadingSlashes(basePath)
-  productPageBasePath = removeTrailingLeadingSlashes(productPageBasePath)
-
-  createNodeField({
-    node,
-    name: 'shopifyThemePath',
-    value: `${basePath && `/${basePath}`}/${productPageBasePath}/${node.handle}`,
-  })
-}
-const createShopPolicyNode = (options, actions, node) => {
-  let { basePath = '', policyPageBasePath = 'policies' } = options
-  const { createNodeField } = actions
-  basePath = removeTrailingLeadingSlashes(basePath)
-  policyPageBasePath = removeTrailingLeadingSlashes(policyPageBasePath)
-  // Todo: Improve the way this is done. Maybe using the config.json file.
-  createNodeField({
-    node,
-    name: 'shopifyThemePath',
-    value: `${basePath && `/${basePath}`}/${policyPageBasePath}/${node.type}`,
-  })
-}
-
-/**
- * ============================================================================
  * Create pages
  * ============================================================================
  */
 
-const createBlogPage = async (
-  graphql,
-  postsPerBlogPage,
-  basePath,
-  createPage,
-  finalCartPagePath
-) => {
+const createBlogPage = async (graphql, postsPerBlogPage, basePath, createPage) => {
   const queryPosts = await graphql(`
     {
       prismicBlog {
@@ -120,14 +71,12 @@ const createBlogPage = async (
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
-        // Todo: Find a better way to do this.
-        // cartUrl: finalCartPagePath,
       },
     })
   })
 }
 
-const createPostPage = async (graphql, createPage, finalCartPagePath) => {
+const createPostPage = async (graphql, createPage) => {
   const queryPosts = await graphql(`
     {
       posts: allPrismicPost {
@@ -149,7 +98,6 @@ const createPostPage = async (graphql, createPage, finalCartPagePath) => {
       context: {
         uid: uid,
         relatedPosts: relatedPosts,
-        // cartUrl: finalCartPagePath,
       },
     })
   })
@@ -160,22 +108,6 @@ const createPostPage = async (graphql, createPage, finalCartPagePath) => {
  * Gatsby node APIs
  * ============================================================================
  */
-
-exports.onCreateNode = async ({ node, actions, cache }, options) => {
-  // NOTE: Before these nodes are picked up, createSchemaCustomization must run
-  switch (node.internal.type) {
-    case `ShopifyProduct`:
-      createProductNode(options, actions, node)
-      break
-    case `ShopifyCollection`:
-      createCollectionNode(options, actions, node)
-      break
-    case `ShopifyShopPolicy`:
-      createShopPolicyNode(options, actions, node)
-      break
-    default:
-  }
-}
 
 exports.createPages = async ({ graphql, actions }, options) => {
   const gsConfig = await graphql(`
@@ -191,74 +123,17 @@ exports.createPages = async ({ graphql, actions }, options) => {
     }
   `)
 
-  const { productsPerCollectionPage = 9, postsPerBlogPage = 8 } = gsConfig
+  const { postsPerBlogPage = 8 } = gsConfig
 
   let { basePath = '' } = options
   const { createPage } = actions
 
-  // Create Cart path (used across multiple pages)
-  let { cartPagePath = 'cart' } = options
   basePath = removeTrailingLeadingSlashes(basePath)
-  cartPagePath = removeTrailingLeadingSlashes(cartPagePath)
-  const finalCartPagePath = `${basePath && `/${basePath}`}/${cartPagePath}`
 
   basePath = removeTrailingLeadingSlashes(basePath)
 
-  await createBlogPage(graphql, postsPerBlogPage, basePath, createPage, finalCartPagePath)
+  await createBlogPage(graphql, postsPerBlogPage, basePath, createPage)
   console.log(gs('Blog page created'))
-  await createPostPage(graphql, createPage, finalCartPagePath)
+  await createPostPage(graphql, createPage)
   console.log(gs('Post page created'))
-}
-
-/**
- * ============================================================================
- * Ignore the [mini-css-extract-plugin] ordering warnings
- * ============================================================================
- */
-exports.onCreateWebpackConfig = ({ stage, actions, getConfig, loaders, plugins }) => {
-  const config = getConfig()
-  const miniCssExtractPluginIndex = config.plugins.findIndex(
-    (plugin) => plugin.constructor.name === 'MiniCssExtractPlugin'
-  )
-
-  if (miniCssExtractPluginIndex > -1) {
-    // remove miniCssExtractPlugin from plugins list
-    config.plugins.splice(miniCssExtractPluginIndex, 1)
-
-    // re-add mini-css-extract-plugin
-    if (stage === 'build-javascript') {
-      config.plugins.push(
-        plugins.extractText({
-          filename: `[name].[contenthash].css`,
-          chunkFilename: `[name].[contenthash].css`,
-          ignoreOrder: true,
-        })
-      )
-    } else {
-      config.plugins.push(
-        plugins.extractText({
-          filename: `[name].css`,
-          chunkFilename: `[id].css`,
-          ignoreOrder: true,
-        })
-      )
-    }
-  }
-  actions.replaceWebpackConfig(config)
-
-  // Allows for the usage of the crypto library since Webpack v5 doesn't provide polyfills for all the libraries below
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        stream: require.resolve('stream-browserify'),
-        zlib: require.resolve('browserify-zlib'),
-        path: require.resolve('path-browserify'),
-      },
-      fallback: {
-        fs: false,
-        crypto: require.resolve('crypto-browserify'),
-      },
-    },
-    plugins: [plugins.provide({ process: 'process/browser', Buffer: ['buffer', 'Buffer'] })],
-  })
 }
